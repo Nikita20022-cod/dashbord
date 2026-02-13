@@ -1,0 +1,15 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  devtools: { enabled: true },
+  modules: ['@nuxtjs/tailwindcss'],
+  pages: true,
+  hooks: {
+    'pages:extend'(pages) {
+      pages.push({
+        name: 'not-found',
+        path: '/:pathMatch(.*)*',
+        file: '~/pages/error.vue'
+      })
+    }
+  }
+})
